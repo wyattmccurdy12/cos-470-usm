@@ -1,0 +1,48 @@
+% Thu Aug 10 10:38:11 EDT 2023
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% SUMMARY	: Lecture Notes Control File 
+%			: Discrete Mathematics II 
+% 			: University of Southern Maine 
+%			: @james.quinlan
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+% EDIT SETTINGS 
+% --------------------------------------------------------------
+\def\tl{Topics in Computer Science}
+\def\bl{COS 470}
+\def\tr{Fall 2024}
+\def\br{Lecture 1}
+\def\course{DSC301}
+\def\professor{Quinlan}
+\def\semesteryear{Spring 2024}
+
+% Homework Specific Settings
+\def\which{1} % HW # (header and input file)
+\def\sols{0} % Include solutions? 1 or 0
+% --------------------------------------------------------------
+
+
+
+% %------ DOCUMENT CLASS ------%
+\documentclass[11pt]{exam}
+\input{packages}
+
+%----------- HEADER -----------%
+\newcommand{\hwheadings}[2]{
+{\bf \tl} \hfill {{\tr}}\\
+{\bl } \hfill { \br  } \\
+\rule[0.1in]{\textwidth}{0.0025in}
+%\thispagestyle{empty}
+}
+
+\begin{document}
+\hwheadings{1}{\professor}
+% ----------------------------- %
+ 
+\vspace{-0.25cm}
+
+%------------- BODY ------------%
+\input{lectures/\which}  
+
+\end{document}
+
