@@ -1,10 +1,16 @@
-# cos-470-usm
-Lecture Notes and Template
+# COS 470 University of Southern Maine
+Topics in Computer Science: Mathematics of Machine Learning
 
-### LaTeX Symbols
-```
-https://www.cmor-faculty.rice.edu/~heinken/latex/symbols.pdf
-```
 
-## Useful Links
-[https://www.tablesgenerator.com](https://www.tablesgenerator.com)
+
+
+## Related Links
+
+* [LaTeX Symbols](https://www.cmor-faculty.rice.edu/~heinken/latex/symbols.pdf)
+* [Mathematics Subject Classification](https://mathscinet.ams.org/mathscinet/msc/msc2020.html)
+* [PGFPlots Gallery](https://pgfplots.sourceforge.net/gallery.html)
+* [Table Generator](https://www.tablesgenerator.com)
+* [TikZ 1](https://www.overleaf.com/learn/latex/TikZ_package)
+* [TikZ Examples](https://texample.net)
+
+
