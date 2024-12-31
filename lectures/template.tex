@@ -14,3 +14,83 @@
 
 \rule[0.0051in]{\textwidth}{0.00025in}
 % ----------------------------------------------------------------
+
+
+
+
+
+
+\section{Table and Figure}
+
+%% Table
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{c c}
+     \toprule
+    Header 1 &   Header 1 \\
+      \midrule
+  	A & B\\
+	C & D\\
+	\bottomrule
+    \end{tabular}
+    \caption{Describe}
+    \label{tab:abc}
+\end{table}
+%
+%
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=2in]{figures/example} 
+   \caption{example caption}
+   \label{fig:example}
+\end{figure}
+
+% Side-by-side subfigures 
+\begin{figure}
+	\begin{subfigure}[h]{0.4\linewidth}
+		\includegraphics[width=\linewidth]{figures/example}
+		\caption{Image A}
+	\end{subfigure}
+		\hfill
+	\begin{subfigure}[h]{0.4\linewidth}
+		\includegraphics[width=\linewidth]{figures/example}
+		\caption{Image B}
+	\end{subfigure}%
+\caption{This is a figure with two subfigures}
+\end{figure}
+
+
+
+
+
+
+\section{Algorithm and Code}
+% Algorithm
+\begin{algorithm}[h]
+\caption{Round and replace}\label{alg:21}
+\begin{algorithmic}[1] % Line numbers
+	\Require $x$
+	\Ensure $y$
+
+	\State $y = f(x)$
+	\If{x > 1}
+		\State $y = 2$
+	\EndIf
+
+\end{algorithmic}
+\end{algorithm}
+
+
+Code can be rendered with the verbatim environment or in the listings package.
+
+\begin{verbatim}
+if (1 > 0)
+  print("hello world")
+end
+\end{verbatim}
+
+\begin{lstlisting}[language=Octave]
+if (1 > 0)
+  print("hello world")
+end
+\end{lstlisting}
