@@ -5,3 +5,6 @@ Lecture Notes and Template
 ```
 https://www.cmor-faculty.rice.edu/~heinken/latex/symbols.pdf
 ```
+
+## Useful Links
+[https://www.tablesgenerator.com](https://www.tablesgenerator.com)
