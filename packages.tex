@@ -8,22 +8,15 @@
 \usepackage{theorem}
 \usepackage{float}
 \usepackage{mathabx, color} % square bullets in itemized list
-%\usepackage{layout}% if you want to see the layout parameters
-                     % and now use \layout command in the body
 \usepackage{url}
 \usepackage{pgfplots}
 \pgfplotsset{width=7cm,compat=1.10}
-
 \usepackage{soul}
-% Frame package and color package - used for colored frame boxes  
-
 \usepackage{marginnote}
-
-% \usepackage{framed,color, mcode}
-% \usepackage{mcode}
-%\lstset{
-%    literate={~} {$\sim$}{1}
-%}
+\usepackage{booktabs}
+\usepackage{tcolorbox, graphicx}
+\usepackage{xcolor,colortbl}
+\usepackage{framed,color}
 
 
 % Define colors
@@ -36,6 +29,7 @@
 \definecolor{lightGray}{rgb}{0.975,0.975,0.975}
 \definecolor{borderGray}{rgb}{0.8,0.8,0.8}
 \definecolor{orange}{cmyk}{0,0.5,1,0}
+\definecolor{excel}{rgb}{0.90,0.975,0.997}
 
 
 % This is the stuff for normal spacing
@@ -137,18 +131,11 @@
 \setenumerate[3]{label=\roman*.}
 % \setenumerate[4]{label=\alph*.}
 
-\usepackage{booktabs}
-\usepackage{tcolorbox, graphicx}
-\usepackage{xcolor,colortbl}
-\usepackage{framed,color}
-\definecolor{excel}{rgb}{0.90,0.975,0.997}
-
-
-\input{code}
-
-
 
 % Trig stuff
 \DeclareMathOperator{\arcsec}{arcsec}
 \DeclareMathOperator{\arccot}{arccot}
 \DeclareMathOperator{\arccsc}{arccsc}
+
+\input{code}
+
