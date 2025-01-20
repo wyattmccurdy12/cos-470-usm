@@ -11,7 +11,6 @@
     \1 Objective 3
 \end{outline}
 
-
 \rule[0.0051in]{\textwidth}{0.00025in}
 % ----------------------------------------------------------------
 
@@ -24,7 +23,7 @@ x^2 = 2 \Rightarrow x = \sqrt{2}
 \]
 
 Use an equation or align environment for centered numbered equations or a chain of equations.
-If equation numbering is not needed (i.e., not referenced), the \verb@align*@ can be used instead.
+If equation numbering is unnecessary (i.e., not referenced), the \verb@align*@ can be used instead.
 The ``align" environment is preferred in general. 
 %
 \begin{align}
@@ -33,6 +32,9 @@ x^2 - 5x + 6 	&= (x - 2)(x - 3) \\
 \end{align}
 %
 
+
+
+% ----------------------------------------------------------------
 \section{Table and Figure}
 
 %% Table
@@ -76,7 +78,7 @@ x^2 - 5x + 6 	&= (x - 2)(x - 3) \\
 
 
 
-
+% ----------------------------------------------------------------
 \section{Algorithm and Code}
 % Algorithm
 \begin{algorithm}[h]
@@ -89,12 +91,11 @@ x^2 - 5x + 6 	&= (x - 2)(x - 3) \\
 	\If{x > 1}
 		\State $y = 2$
 	\EndIf
-
 \end{algorithmic}
 \end{algorithm}
 
 
-Code can be rendered with the verbatim environment or in the listings package.
+Code can be rendered in a {\tt verbatim} environment or the {\tt listings} package.
 
 \begin{verbatim}
 if (1 > 0)
