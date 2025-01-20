@@ -6,7 +6,7 @@ Topics in Computer Science: Mathematics of Machine Learning
 1. Vectors, matrices, and norms
 2. Supervised learning ingredients 
 
-## Sofware
+## Software
 
 * [Julia]()
 * [Python]()
