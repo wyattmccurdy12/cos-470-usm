@@ -16,9 +16,22 @@
 % ----------------------------------------------------------------
 
 
+\section{Mathematics}
+Inline mathematics is enclosed with dollar signs, \$math\$.  For example, $x^2 = 2 \Rightarrow x = \sqrt{2}$.  
+You can center mathematics with double dollar signs (or backslash square brackets, \verb@\[ math \]@.
+\[
+x^2 = 2 \Rightarrow x = \sqrt{2}
+\]
 
-
-
+Use an equation or align environment for centered numbered equations or a chain of equations.
+If equation numbering is not needed (i.e., not referenced), the \verb@align*@ can be used instead.
+The ``align" environment is preferred in general. 
+%
+\begin{align}
+x^2 - 5x + 6 	&= (x - 2)(x - 3) \\
+		&= x = 2 \quad \lor \quad x = 3
+\end{align}
+%
 
 \section{Table and Figure}
 
