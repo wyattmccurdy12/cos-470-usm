@@ -6,10 +6,12 @@ Topics in Computer Science: Mathematics of Machine Learning
 1. [Vectors, matrices, and norms](topsum.md)
 2. Supervised learning ingredients 
 
-## Software
+## Software and Platforms
 
 * [Julia]()
-* [Python]()
+* [Python](https://www.python.org)
+* [Google Colab](https://colab.research.google.com)
+* [Jupyter Notebooks](https://jupyter.org)
 
 
 ## Related Links
