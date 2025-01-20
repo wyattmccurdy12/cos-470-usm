@@ -8,7 +8,7 @@ Topics in Computer Science: Mathematics of Machine Learning
 
 ## Software and Platforms
 
-* [Julia]()
+* [Julia](https://julialang.org)
 * [Python](https://www.python.org)
 * [Google Colab](https://colab.research.google.com)
 * [Jupyter Notebooks](https://jupyter.org)
