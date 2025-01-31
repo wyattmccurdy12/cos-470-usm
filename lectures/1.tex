@@ -220,25 +220,28 @@ Using the \textbf{Binary Indicator Function} we can describe the \textbf{Hamming
 
 
 % ----------------------------------------------------------------
-\section{``Homework" Problems}
+\section{Exploration (XPL) Problems}
 
-\quad \textbf{XPL 1)} Is $d(x,y) = \sqrt{|x| + |y|}$ a valid distance metric? \\
+\begin{outline}[enumerate]
+
+\1  Is $d(x,y) = \sqrt{|x| + |y|}$ a valid distance metric? \\
 
 We can show this by confirming the 4 conditions of a distance metric:
 
-1) $d(x,y) \ge 0$: This is \textbf{true} as the range of the square root function is $[0,\infty)$.
+(i) $d(x,y) \ge 0$: This is \textbf{true} as the range of the square root function is $[0,\infty)$.
 
-2) $d(x,y) = 0$ if $x=y$. This is \textbf{not true}. If $x=y$, then we have $\sqrt{2|x|} \neq 0$.
+(ii) $d(x,y) = 0$ if $x=y$. This is \textbf{not true}. If $x=y$, then we have $\sqrt{2|x|} \neq 0$.
 
-3) $d(x,y) = d(y,x)$. This is \textbf{true}, as $|x| + |y| = |y| + |x|$.
+(iii) $d(x,y) = d(y,x)$. This is \textbf{true}, as $|x| + |y| = |y| + |x|$.
 
-4) $d(x,z) \leq d(x,y) + d(y,z)$. Lets not bother, we already proved this false with number 2. \\
+(iv) $d(x,z) \leq d(x,y) + d(y,z)$. Let's not bother; we already proved this false with number 2. \\
 
 
-\quad \textbf{XPL 2)}  Is $d(x,y) = (x -y)^2$ a valid distance metric? \\
+\1  Is $d(x,y) = (x -y)^2$ a valid distance metric? \\
 
-\quad \textbf{XPL 3)} Is $d(x,x) = 0$ $\wedge$ $d(x,y) = 1$, $\forall x \neq y$ a valid distance metric? \\
+\1 Is $d(x,x) = 0$ $\wedge$ $d(x,y) = 1$, $\forall x \neq y$ a valid distance metric? \\
 
-\quad \textbf{XPL 4)} Code out the Binary Indicator Function using a functional programming paradigm \\
+\1  Code the Binary Indicator Function using a functional programming paradigm \\
 
-\quad \textbf{XPL 5)} Prove $d_H(x,y)$ satisfies the Triangle Inequality
+\1 Prove $d_H(x,y)$ satisfies the Triangle Inequality
+\end{outline}
