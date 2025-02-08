@@ -14,7 +14,7 @@ This is why many machine learning algorithms perform poorly in high dimensions.
 @Package: LinearAlgebra (norm)
 @CPU: Intel Core i7 - 12800 MHz
 @Memory: 32.6 GiB
-@Author: quinlan
+@Author: james.quinlan
 """
 
 using LinearAlgebra: norm
