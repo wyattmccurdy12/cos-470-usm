@@ -51,4 +51,4 @@ L = @. (k/n)^(1/p)
 
 
 
-[1] https://en.wikipedia.org/wiki/Curse_of_dimensionality
+# [1] https://en.wikipedia.org/wiki/Curse_of_dimensionality
