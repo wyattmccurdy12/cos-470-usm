@@ -41,7 +41,7 @@ D /= size(X,2)
 # L = length of side.
 # k = number of points in the hypercube
 # n = number of points in the dataset
-# p = number of dimensions
+# p = number of dimensions (vector)
 
 k = 10
 p = [2,4,8,16,32,64,128,256,512,1024]
