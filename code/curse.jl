@@ -44,7 +44,6 @@ D /= size(X,2)
 # p = number of dimensions
 
 k = 10
-n = 1000
 p = [2,4,8,16,32,64,128,256,512,1024]
 L = @. (k/n)^(1/p)
 # Conclusion: The size of the hypercube grows exponentially with the number of dimensions.
