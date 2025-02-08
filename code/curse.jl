@@ -7,6 +7,8 @@ This has many implications for machine learning, such as the fact that the numbe
 to fill the space grows exponentially with the dimension. 
 This is why many machine learning algorithms perform poorly in high dimensions.
 
+[1] https://en.wikipedia.org/wiki/Curse_of_dimensionality
+
 @Julia: 1.11.3
 @OS: Linux (x96_64) (Ubuntu 20.04)
 @Package: LinearAlgebra (norm)
@@ -48,7 +50,3 @@ p = [2,4,8,16,32,64,128,256,512,1024]
 L = @. (k/n)^(1/p)
 # Conclusion: The size of the hypercube grows exponentially with the number of dimensions.
 # Taking up the entire [0,1]^p space.
-
-
-
-# [1] https://en.wikipedia.org/wiki/Curse_of_dimensionality
