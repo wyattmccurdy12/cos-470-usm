@@ -12,7 +12,7 @@ This is why many machine learning algorithms perform poorly in high dimensions.
 @Julia: 1.11.3
 @OS: Linux (x96_64) (Ubuntu 20.04)
 @Package: LinearAlgebra (norm)
-@CPU: Intel Core i7 - 12800 MHz
+@CPU: Intel Core i7 - 4800 MHz
 @Memory: 32.6 GiB
 @Author: james.quinlan
 """
