@@ -50,3 +50,9 @@ p = [2,4,8,16,32,64,128,256,512,1024]
 L = @. (k/n)^(1/p)
 # Conclusion: The size of the hypercube grows exponentially with the number of dimensions.
 # Taking up the entire [0,1]^p space.
+
+
+# Test 4: Distance to the "wall" of the hypercube
+d = 10
+x = rand(d)
+min(minimum(x), 1-maximum(x))
