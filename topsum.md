@@ -1,5 +1,3 @@
 ### Vectors, matrics, and norms
 
-[Lecture 1](\1 Introduction to Vectors
-    \1 Distance Metrics
-    \1 Distance Metric Examples) covered vectors and distance metrics.  Several examples of distances were provides.
+[Lecture 1](https://github.com/jamesquinlan/cos-470-usm/blob/main/lectures/1.tex) covered vectors and distance metrics.  Several examples of distances were provides.
