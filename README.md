@@ -2,9 +2,12 @@
 Topics in Computer Science: Mathematics of Machine Learning
 
 
-## Topics
-1. [Vectors, matrices, and norms](topsum.md)
-2. Supervised learning ingredients 
+## Topics - Student Scribed Notes
+1. [Vectors and distance metrics](https://github.com/jamesquinlan/cos-470-usm/blob/main/lectures/1.tex)
+2. [Scalar product, Norms, Projections](https://github.com/jamesquinlan/cos-470-usm/blob/main/lectures/2.tex)
+3. [Curse of Dimensionality](https://github.com/jamesquinlan/cos-470-usm/blob/main/lectures/3.tex)
+4. [Intro. to k-NN](https://github.com/jamesquinlan/cos-470-usm/blob/main/lectures/4.tex)
+5. [k-NN continued w/code](https://github.com/jamesquinlan/cos-470-usm/blob/main/lectures/5.tex)
 
 ## Software and Platforms
 
