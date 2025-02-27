@@ -1,44 +1,3 @@
-% Thu Jan 30 07:15:05 EDT 2025
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-% SUMMARY  : Lecture Notes Control File 
-%          : University of Southern Maine 
-%          : @james.quinlan
-%          : Courtney Jackson
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-% EDIT SETTINGS 
-% --------------------------------------------------------------
-\def\tl{Topics in Computer Science}
-\def\bl{COS 470}
-\def\tr{Spring 2025}
-\def\br{Lecture 5}
-\def\course{COS470}
-\def\professor{Quinlan}
-\def\semesteryear{Spring 2025}
-\def\which{1} % HW # (header and input file)
-\def\sols{0} % Include solutions? 1 or 0
-% --------------------------------------------------------------
-
-
-
-% % %------ DOCUMENT CLASS ------%
-\documentclass[11pt]{exam}
-\input{packages}
-
-%----------- HEADER -----------%
-\newcommand{\hwheadings}[2]{
-{\bf \tl} \hfill {{\tr}}\\
-{\bl } \hfill { \br  } \\
-\rule[0.1in]{\textwidth}{0.0025in}
-}
-
-\begin{document}
-\hwheadings{1}{\professor}
-% % ----------------------------- %
-\vspace{-0.25cm}
-
-%------------- BODY ------------%
-% \input{lectures/\which}  
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 % SUMMARY    : Lecture 5
 %            : University of Southern Maine 
@@ -80,8 +39,7 @@ Then you can get $y-0=\frac{1}{b-a}(x-a)= \bold{\frac{1}{b-a}x-\frac{a}{b-a}}$\\
 2.) $\frac{x-a}{b-a}d + \frac{b-x}{b-a}c$ \\
 $(a,c) \land (b,d) \rightarrow m = \frac{d-c}{b-a}$ \\
 
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+% ----------------------------------------------------------------
 \section{More about kNN}
 argmax$\sum_{i \in n_k}^{}$I$c_j(y_i)$ $j={1,2,...m}$ \\
 suppose $j=2$ and $k=8$, it is binary classification, $N_k=$ set of indicies of the KNN \\
@@ -94,10 +52,11 @@ $I(-1=1)+I(-1=-1)+I(-1=-1)+I(-1=1)+I(-1=1)+I(-1=1)+I(-1=-1)+I(-1=1)$ \\
 $argmax_{j=[1,2]} (1+0+0+1+1+1+0+1, 0+1+1+0+0+0+1+0)$\\
 $argmax_{j=[1,2]}$ $[5,3]=1$
 
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% ----------------------------------------------------------------
 
 \section{Code in Juila}
-The following is code written in Julia 1.10.4. It is represeting a kNN algorithm on the Iris dataset.
+The following is code written in Julia 1.10.4. 
+It is represeting a kNN algorithm on the Iris dataset.
 
 \begin{lstlisting}
 using pkg
@@ -152,9 +111,7 @@ using Random
 Random.seed!(123) #Where 123 is the seed
 \end{lstlisting}
 
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% ----------------------------------------------------------------
 
 \section{XPL's}
 1.) Code up a partition function
-
-\end{document}
