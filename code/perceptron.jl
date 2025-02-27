@@ -25,9 +25,7 @@ function perceptron(X,y)
     return w
 end
 
-
-
-# Data points
+# Test Case
 X = [
     2.0  2.0;  # Class 1
     3.0  2.2;  # Class 1
@@ -37,3 +35,4 @@ X = [
     2.6  3.5   # Class -1
 ]
 y = [1, 1, 1, -1, -1, -1]
+perceptron(X,y)
