@@ -1,3 +1,17 @@
+"""
+Principal Component Analysis (PCA)
+  This implementation uses MultivariateStats package [1].
+  Equivalently, we can use LinearAlgebra.svd.
+  
+  [1] https://juliastats.org/MultivariateStats.jl/dev/
+  
+  @Julia: 1.11.3
+  @OS: Linux (x96_64) (Ubuntu 20.04)
+  @CPU: Intel Core i7 - 4800 MHz
+  @Memory: 32.6 GiB
+  @Author: james.quinlan
+"""
+
 using MultivariateStats
 
 X = [1 2 3 1;
