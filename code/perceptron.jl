@@ -1,5 +1,8 @@
 """
-The Perceptron
+The Perceptron - binary classification algorithm [1].
+  Frank Rosenblatt (1957) at the Cornell Aeronautical Laboratory.
+
+  [1] https://en.wikipedia.org/wiki/Perceptron
   
   @Julia: 1.11.3
   @OS: Linux (x96_64) (Ubuntu 20.04)
