@@ -1,5 +1,5 @@
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-% SUMMARY    : Vectors, Matricies, Distance and Norms 
+% SUMMARY    : KNN, Regression, Scale Data and Classifier Function 
 %            : University of Southern Maine 
 %            : @james.quinlan
 %            : Deiby Wu - Lecture 4
@@ -80,6 +80,76 @@ to find the temperature of a city in New Hampshire. The three dots inside the ci
 represent other cities near New Hampshire. We take the temperature of those 3 dots (cities),
 and then we average them to find the missing temperature from the city in New Hampshire. That's one
 way of doing it.
+
+\subsection{Dot Product and Cross-Validation in Regression}
+
+\begin{center}
+    \textbf{Understanding Dot Product and Cross-Validation for House Price Prediction}
+\end{center}
+
+\vspace{-0.5cm}
+
+The dot product is a fundamental operation in linear regression, where the input feature vector \( x \) is multiplied by the learned weight vector \( w \) to predict the target \( y \). Mathematically, this can be written as:
+
+\begin{align*}
+    x &= \begin{bmatrix}
+            x_0 \\ x_1 \\ x_2
+         \end{bmatrix} =
+         \begin{bmatrix}
+            \text{Sq. ft} \\
+            \text{Dist to Ocean} \\
+            \text{Dist to School}
+         \end{bmatrix}, \quad
+    w = \begin{bmatrix}
+            w_0 \\ w_1 \\ w_2
+         \end{bmatrix}
+\end{align*}
+
+The predicted house price is computed using the dot product:
+
+\begin{align*}
+    y_{\text{pred}} &= w \cdot x \\
+    &= \sum_{i=0}^{2} w_i x_i
+\end{align*}
+
+
+where:
+- \( w_0, w_1, w_2 \) are learned weights,
+- \( y_{\text{pred}} \) is the predicted house price.
+
+This operation essentially performs a \textbf{weighted sum of the input features} to generate the prediction.
+
+\begin{center}
+\resizebox{!}{5cm}{ % Adjust height, width auto-scales
+    \begin{tikzpicture}
+        % Input nodes (features)
+        \node[circle, fill=blue!50, inner sep=6pt, label=left:{$x_0 = \text{Sq. ft}$}] (x0) at (0,6) {};
+        \node[circle, fill=blue!50, inner sep=6pt, label=left:{$x_1 = \text{Dist to Ocean}$}] (x1) at (0,4) {};
+        \node[circle, fill=blue!50, inner sep=6pt, label=left:{$x_2 = \text{Dist to School}$}] (x2) at (0,2) {};
+
+        % Output node (prediction)
+        \node[circle, fill=blue!50, inner sep=8pt, label=right:{$y_{\text{pred}}$}] (output) at (6,4) {};
+
+        % Weights and connections
+        \draw[thick, ->] (x0) -- node[midway, above, sloped] {\(w_0\)} (output);
+        \draw[thick, ->] (x1) -- node[midway, above, sloped] {\(w_1\)} (output);
+        \draw[thick, ->] (x2) -- node[midway, above, sloped] {\(w_2\)} (output);
+
+    \end{tikzpicture}
+}
+\end{center}
+
+
+\textbf{Cross-Validation for Model Generalization}
+
+To ensure that our model generalizes well to unseen data, we use \textbf{k-fold cross-validation}, which consists of the following steps:
+
+\begin{enumerate}
+    \item Split the dataset into \( k \) subsets (folds).
+    \item Train the model on \( k-1 \) folds while leaving one fold for validation.
+    \item Repeat this process \( k \) times, using a different fold for validation each time.
+    \item Average the performance across all \( k \) runs to obtain a reliable estimate of model accuracy.
+\end{enumerate}
 
 % -----------------------------------------------------------------------------------------------
 
@@ -426,11 +496,9 @@ One important thing to do, if there are let say 2 classes, $K$ should not be a m
 3 or 5 or 7. This concept also applies for cases where there are 3 classes, we avoid choosing a $K$ that is a multiple of 3.
 
 % -----------------------------------------------------------------------------------------------
-
 \section{Class Code}
 Language: Julia
-
-\begin{verbatim}
+\begin{minted}[frame=lines, framesep=2mm]{julia}
 # Installing the necessary packages
 using Pkg
 Pkg.add("RDatasets")
@@ -459,6 +527,4 @@ c = unique(y)
 
 # Find the most frequent class label in y (this is mode technically)
 c[argmax(map(i -> sum(y .== c[i]), 1:lastindex(c)))]
-
-
-\end{verbatim}
+\end{minted}
