@@ -82,14 +82,14 @@ In the programming language you choose, make sure to know whether it is \textbf{
 Transposing a matrix will switch the matrix from column-major to row-major form or vice versa.
 % -- Column Major Vector
   \begin{align*}
-    x &= \begin{bmatrix}
+    \vec{x} &= \begin{bmatrix}
            x_{1} \\
            x_{2} \\
            x_{3} \\
            \vdots \\
            x_{p}
          \end{bmatrix} \\
-    x^T &= [\; x_1, \; x_2, \; x_3, \; \cdots \; x_p \;]
+    \vec{x}^T &= [\; x_1, \; x_2, \; x_3, \; \cdots \; x_p \;]
   \end{align*}
 
 
@@ -99,16 +99,16 @@ Transposing a matrix will switch the matrix from column-major to row-major form 
 A \textbf{Distance Metric} is a general and abstract concept for the distances between vectors. They describe a function that takes two vectors and maps them to a real number greater than or equal to zero. 
 
 \[
-    d(x,y):= \vec{x} \times \vec{y} \rightarrow \mathbb{R}^+
+    d(\vec{x},\vec{y}):= \vec{x} \times \vec{y} \rightarrow \mathbb{R}^+
 \]
 
 There are four conditions that a distance metric has to satisfy. To prove that a function on two vectors is a distance metric, show that these four statements are true for the function:
 
 \begin{outline}
-    \1 $d(x, y) \ge 0$. \; No negative values for distance
-    \1 $d(x,y) = 0$ if $x = y$. \; Two of the same vectors should have 0 distance
-    \1 $d(x,y) = d(y,x)$. \; The function must be symmetric and work with either order.
-    \1 $d(x,z) \le d(x,y) + d(y,z)$. \; \textit{Triangle Inequality} shown below:
+    \1 $d(\vec{x}, \vec{y}) \ge 0$. \; No negative values for distance
+    \1 $d(\vec{x}, \vec{y}) = 0$ if $x = y$. \; Two of the same vectors should have 0 distance
+    \1 $d(\vec{x}, \vec{y}) = d(y,x)$. \; The function must be symmetric and work with either order.
+    \1 $d(\vec{x}, \vec{y}) \le d(x,y) + d(y,z)$, $\forall x, y, z$ \  \textit{Triangle Inequality} shown below:
 \end{outline}
 
 \begin{center}
@@ -166,10 +166,10 @@ Where $d(x,y) = \sqrt{(x_1 - y_1)^2 + (x_2 - y_2)^2}$
 
 The Euclidean distance is one example of a metric used to define distance; however, there are many metrics used to define distances between vectors. \\
 
-Another example of a distance metric is the \textbf{Hamming Distance}. The value of the Hamming Distance is found by counting the number of components that are not the same in two vectors. The Hamming distance is denoted by $d_H (x,y)$. For example:
+Another example of a distance metric is the \textbf{Hamming Distance}. The value of the Hamming Distance is found by counting the number of components that are not the same in two vectors. The Hamming distance is denoted by $d_H (\vec{x},\vec{y})$. For example:
 
 \[
-d_H \left( \mathbf{x} = 
+d_H \left( \mathbf{\vec{x}} = 
 \begin{bmatrix}
     1 \\
     3 \\
@@ -177,7 +177,7 @@ d_H \left( \mathbf{x} =
     7
 \end{bmatrix}, 
 \quad
-\mathbf{y} = 
+\mathbf{\vec{y}} = 
 \begin{bmatrix}
     1 \\
     6 \\
@@ -185,7 +185,7 @@ d_H \left( \mathbf{x} =
     9
 \end{bmatrix} \right) = 2
 \quad \quad \quad 
-d_H \left( \mathbf{x} = 
+d_H \left( \mathbf{\vec{x}} = 
 \begin{bmatrix}
     2 \\
     3 \\
@@ -193,7 +193,7 @@ d_H \left( \mathbf{x} =
     7
 \end{bmatrix},
 \quad
-\mathbf{y} = 
+\mathbf{\vec{y}} = 
 \begin{bmatrix}
     1 \\
     6 \\
@@ -205,17 +205,17 @@ d_H \left( \mathbf{x} =
 The Hamming distance uses the \textbf{Binary Indicator Function} on each component in two vectors to determine the total distance. The binary indicator function takes two components and outputs 1 if they are different and 0 if they are equal.
 
 \[
-\mathcal{I}(x,y) = 
+\mathcal{I}(\vec{x},\vec{y}) = 
 \begin{cases}
-    1 & if \; x \neq y\\
-    0 & if \; x = y
+    1 & if \; \vec{x} \neq \vec{y}\\
+    0 & if \; \vec{x} = \vec{y}
 \end{cases}
 \]
 
 Using the \textbf{Binary Indicator Function} we can describe the \textbf{Hamming Distance}:
 
 \[
-    d_H(x,y):= \sum^p_{i=1} \mathcal{I}(x_i \, , \, y_i)
+    d_H(\vec{x},\vec{y}):= \sum^p_{i=1} \mathcal{I}(x_i \, , \, y_i)
 \]
 
 
@@ -224,24 +224,24 @@ Using the \textbf{Binary Indicator Function} we can describe the \textbf{Hamming
 
 \begin{outline}[enumerate]
 
-\1  Is $d(x,y) = \sqrt{|x| + |y|}$ a valid distance metric? \\
+\1  Is $d(\vec{x},\vec{y}) = \sqrt{|\vec{x}| + |\vec{y}|}$ a valid distance metric? \\
 
 We can show this by confirming the 4 conditions of a distance metric:
 
-(i) $d(x,y) \ge 0$: This is \textbf{true} as the range of the square root function is $[0,\infty)$.
+(i) $d(\vec{x},\vec{y}) \ge 0$: This is \textbf{true} as the range of the square root function is $[0,\infty)$.
 
-(ii) $d(x,y) = 0$ if $x=y$. This is \textbf{not true}. If $x=y$, then we have $\sqrt{2|x|} \neq 0$.
+(ii) $d(\vec{x},\vec{y}) = 0$ if $x=y$. This is \textbf{not true}. If $\vec{x}=\vec{y}$, then we have $\sqrt{2|\vec{x}|} \neq 0$.
 
-(iii) $d(x,y) = d(y,x)$. This is \textbf{true}, as $|x| + |y| = |y| + |x|$.
+(iii) $d(\vec{x},\vec{y}) = d(\vec{y},\vec{x})$. This is \textbf{true}, as $|\vec{x}| + |\vec{y}| = |\vec{y}| + |\vec{x}|$.
 
-(iv) $d(x,z) \leq d(x,y) + d(y,z)$. Let's not bother; we already proved this false with number 2. \\
+(iv) $d(\vec{x},\vec{z}) \leq d(\vec{x},\vec{y}) + d(\vec{y},\vec{z})$. Let's not bother; we already proved this false with number 2. \\
 
 
-\1  Is $d(x,y) = (x -y)^2$ a valid distance metric? \\
+\1  Is $d(\vec{x},\vec{y}) = (\vec{x} - \vec{y})^2$ a valid distance metric? \\
 
-\1 Is $d(x,x) = 0$ $\wedge$ $d(x,y) = 1$, $\forall x \neq y$ a valid distance metric? \\
+\1 Is $d(\vec{x},\vec{x}) = 0$ $\wedge$ $d(\vec{x},\vec{y}) = 1$, $\forall \vec{x} \neq \vec{y}$ a valid distance metric? \\
 
 \1  Code the Binary Indicator Function using a functional programming paradigm \\
 
-\1 Prove $d_H(x,y)$ satisfies the Triangle Inequality
+\1 Prove $d_H(\vec{x},\vec{y})$ satisfies the Triangle Inequality
 \end{outline}
