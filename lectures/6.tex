@@ -169,3 +169,104 @@ From this, we can also obtain the component of $u$ \textit{perpendicular} to $v$
 
 \section{XPL's}
 1.) Modify perception code to add a counter to see how many updates it takes to obtain any solution.
+
+
+
+
+
+
+
+
+
+
+
+\begin{figure}
+    \centering
+\begin{tikzpicture}
+
+% Leftmost figure
+\draw[thick, gray, dashed] (0, -1.75) -- (0, 2);
+\node at (0, -2.75) {(a)};
+
+\node at (0.5, 1.5) [circle, fill, inner sep=3.0pt] {};
+\node at (0.35, 1.1) [circle, fill, inner sep=3pt] {};
+\node at (-0.25, 1.0) [circle, fill, inner sep=3pt] {};
+
+\node at (-0.25, -1.25) [ circle, draw, inner sep=3pt] {};
+\node at (-0.5, -1) [circle, draw, inner sep=3pt] {};
+\node at (-0.20, -0.85) [circle, draw, inner sep=3pt] {};
+\node at (0.35, -0.75) [ circle, draw, inner sep=3pt] {};
+
+ \node at (1, 1.5) [above] {$+1$};
+ \node at (-1, -1.0) [below] {$-1$};
+\node at (1.350, 0.1) [right] {${\bf w}$};
+\draw[-latex] (0.0, 0.0) -- (1.5, 0.0);
+
+
+
+
+% Middle figure
+\draw[thick, gray, dashed] (4, -1.75) -- (4, 2);
+\node at (4, -2.75) {(b)};
+\node at (0.5+4, 1.5) [circle, fill, inner sep=3.0pt] {};
+\node at (0.35+4, 1.1) [circle, fill, inner sep=3.0pt] {};
+\node at (-0.25+4, 1.0) [circle, fill, inner sep=3.0pt] {};
+
+\node at (-0.25+4, -1.25) [ circle, draw, inner sep=3pt] {};
+\node at (-0.5+4, -1) [ circle, draw, inner sep=3pt] {};
+\node at (-0.20+4, -0.85) [circle, draw, inner sep=3pt] {};
+\node at (0.35+4, -0.75) [ circle, draw, inner sep=3pt] {};
+
+\node at (5, 1.5) [above] {$+1$};
+\node at (3, -1.0) [below] {$-1$};
+
+
+% Vector W
+\node at (5.4, 0.1) [right] {${\bf w}$};
+\draw[-latex] (4, 0) -- (5.5, 0);
+
+% vector x
+%\draw[-latex] (4, 0) -- (4.5, -0.65);
+%\node at (4.3, 0.3) [above] {$x$};
+
+% \node at (4, 1) [above] {$x$};
+% \draw[-latex, dashed] (5, 0) -- (4.75, -0.88);
+\node at (3.35, 1.25) [right] {${\bf x}_i$}; % {\bf w}_k - {\bf x}
+\draw[-latex] (4, 0) -- (3.75, 0.90);
+\node at (4.05, 0.2) [right, rotate=40] {${\bf w} + y_i{\bf x}_i$};
+
+% \draw[-latex] (5.5, 0) -- (5.25, 1.0);
+% \draw[-latex, dotted] (4, 0) -- (5.25, 1.0);
+
+\draw[-latex] (4, 0) -- (5.25, 1.0);
+
+ 
+
+
+% Rightmost figure
+\draw[thick, gray, dashed] (6, 2) -- (10, -2);
+\node at (8, -2.75) {(c)};
+\node at (0.5+8, 1.5) [circle, fill, inner sep=3.0pt] {};
+\node at (0.35+8, 1.1) [circle, fill, inner sep=3.0pt] {};
+\node at (-0.25+8, 1.0) [circle, fill, inner sep=3.0pt] {};
+
+% hollow circles
+\node at (-0.25+8, -1.25) [ circle, draw, inner sep=3pt] {};
+\node at (-0.5+8, -1) [ circle, draw, inner sep=3pt] {};
+\node at (-0.20+8, -0.85) [circle, draw, inner sep=3pt] {};
+\node at (0.35+8, -0.75) [ circle, draw, inner sep=3pt] {};
+
+\draw[-latex] (0+8, 0) -- (0 + 9.2, 1.0);
+\node at (9, 1.5) [above] {$+1$};
+\node at (7, -1.0) [below] {$-1$};
+%\node at (-1.0, 1.10) [above] {+1};
+%\node at (1, -1.0) [below] {-1};
+% \draw[-latex] (4, 0) -- (5.25, 1.0);
+\node at (9.1, 0.85) [right] {${\bf w} = {\bf w} + y_i{\bf x}_i$};
+%\node at (9.1, 0.85) [right] {${\bf w}_{k+1}$};
+
+\end{tikzpicture}
+   
+    \caption{Illustration of a one step update using Algorithm \ref{alg:perceptron}.  (a) The hyperplane defined by ${\bf w}$ misclassifies one hollow circle and one filled circle. (b) Hyperplane is updated since ${\bf x}_i$ was misclassified. (c) Updated hyperplane, ${\bf w} + y_i{\bf x}_i$, that separates the two classes.}
+    \label{fig:perceptron}
+\end{figure}
