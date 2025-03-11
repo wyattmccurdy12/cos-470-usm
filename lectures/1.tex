@@ -105,8 +105,8 @@ A \textbf{Distance Metric} is a general and abstract concept for the distances b
 There are four conditions that a distance metric has to satisfy. To prove that a function on two vectors is a distance metric, show that these four statements are true for the function:
 
 \begin{outline}
-    \1 $d(\vec{x}, \vec{y}) \ge 0$. \; No negative values for distance
-    \1 $d(\vec{x}, \vec{y}) = 0$ if $x = y$. \; Two of the same vectors should have 0 distance
+    \1 $d(\vec{x}, \vec{y}) \ge 0$. \; No negative values for distance.
+    \1 $d(\vec{x}, \vec{y}) = 0$ iff $x = y$. \; The distance between two vectors should be zero if and only if the vectors are equal.
     \1 $d(\vec{x}, \vec{y}) = d(y,x)$. \; The function must be symmetric and work with either order.
     \1 $d(\vec{x}, \vec{z}) \le d(x,y) + d(y,z)$, $\forall x, y, z$ \  \textit{Triangle Inequality} shown below:
 \end{outline}
@@ -140,7 +140,7 @@ One of the distance metrics we all know of is \textbf{Euclidean Distance}, which
     \node[circle, fill=red, inner sep=2pt, label=above:{$y$}] (B) at (4, 0) {};
     \draw[<->, thick, dashed] (1, 0.7) -- (4, 0.7) node[midway, above] {$d(x, y) = 3$ \; \; \;$p = 1$};
 \end{tikzpicture} \\
-Where $d(x,y) = |x - y|$ and $d(x, y)$ is the distance metric.
+When $p = 1$, $d(x,y) = |x - y|$.
 \end{center}
 
 \begin{center}
@@ -161,7 +161,7 @@ Where $d(x,y) = |x - y|$ and $d(x, y)$ is the distance metric.
         \draw[thin, gray] (A) -- (A |- B) node[midway, right] {$y_2 - y_1$};
         \draw[thin, gray] (B) -- (A |- B) node[midway, below] {$x_2 - x_1$};
     \end{tikzpicture} \\
-Where $d(x,y) = \sqrt{(x_1 - y_1)^2 + (x_2 - y_2)^2}$
+When $p = 2$, $d(x,y) = \sqrt{(x_1 - y_1)^2 + (x_2 - y_2)^2}$
 \end{center}
 
 The Euclidean distance is one example of a metric used to define distance; however, there are many metrics used to define distances between vectors. \\
@@ -230,7 +230,7 @@ We can show this by confirming the 4 conditions of a distance metric:
 
 (i) $d(\vec{x},\vec{y}) \ge 0$: This is \textbf{true} as the range of the square root function is $[0,\infty)$.
 
-(ii) $d(\vec{x},\vec{y}) = 0$ if $x=y$. This is \textbf{not true}. If $\vec{x}=\vec{y}$, then we have $\sqrt{2|\vec{x}|} \neq 0$.
+(ii) $d(\vec{x},\vec{y}) = 0$ iff $x=y$. This is \textbf{not true}. If $\vec{x}=\vec{y}$, then we have $\sqrt{2|\vec{x}|} \neq 0$.
 
 (iii) $d(\vec{x},\vec{y}) = d(\vec{y},\vec{x})$. This is \textbf{true}, as $|\vec{x}| + |\vec{y}| = |\vec{y}| + |\vec{x}|$.
 
