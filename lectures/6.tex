@@ -1,0 +1,151 @@
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% SUMMARY    : Introduction of Perceptron and the Hyperplane
+%            : University of Southern Maine 
+%            : @mandy.ho
+%            : Lecture
+%            : 2025/02/24
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+% ----------------------------------------------------------------
+\usetikzlibrary{positioning}
+\begin{center}
+\begin{tikzpicture}
+\usetikzlibrary{shapes.geometric}
+
+    \draw[very thin, gray] (-2.5,-2.5) grid (2.5,2.5);
+
+    % squares
+    \foreach \x/\y in {0.2/0.4, 1.4/1.2, -0.8/0.2, 0.2/-0.3, -1.2/-0.1, -1.5/-0.9, -0.3/-0.2, 0.8/1.7} {
+        \node[draw, fill=black, shape=rectangle, scale=0.8] at (\x,\y) {};
+    }
+
+    % circles
+    \node[draw, fill=black, shape=circle, scale=0.6] at (0.9, -1.7) {};
+    \node[draw, fill=black, shape=circle, scale=0.6] at (2.1, -0.3) {};
+    \node[draw, fill=black, shape=circle, scale=0.6] at (-0.4, -2.1) {};
+
+    % target
+    \node [draw, fill=red, shape=star] at (0,0.7) {};
+\end{tikzpicture}
+\end{center}
+% ----------------------------------------------------------------
+
+\subsection*{1. K-Nearest Neighbors (KNN) Review}
+\begin{itemize}
+    \item Pick $k$-nearest neighbors.
+    \item Easy, intuitive, and effective.
+    \item Not suitable for random data.
+    \item Assumptions:
+    \begin{itemize}
+        \item There is a pattern to discern.
+        \item Computationally, the algorithm calculates distance, sorts, and selects $k$ nearest neighbors.
+        \item Data structures to facilitate this process include k-d trees and ball trees.
+        \item Example: Is the star a cat or a dog?
+    \end{itemize}
+    \item $k$ is a hyperparameter:
+    \begin{itemize}
+        \item A hyperparameter is not learned or trained by the model.
+        \item You select the “best” $k$ by tuning and training models on various different values of $k$.
+        \item Examples:
+        \begin{itemize}
+            \item Cross-validation
+            \item Grid search
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Cross-Validation}
+\begin{itemize}
+    \item What determines the split? The amount of data you have.
+    \item Most common splits are 80/20 or 70/30.
+    \item The more training data you have, the better the model performance.
+\end{itemize}
+
+% ----------------------------------------------------------------
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}[node distance=1.5cm and 2cm, auto]
+        % Nodes
+        \node (data) [draw, rectangle] {Data};
+        \node (train) [below left=of data, draw, rectangle] {Training Set};
+        \node (test)  [below right=of data, draw, rectangle] {Test Set};
+        \node (dev)   [below left=of train, draw, rectangle] {Dev Set};
+        \node (val)   [below right=of train, draw, rectangle] {Validation Set};
+        \node (build) [below=of dev, draw, rectangle] {Develop, build, or train model};
+        \node (train_all) [below=of val, draw, rectangle] {Train on everything};
+        \node (final_test) [below=of train_all, draw, rectangle] {Finally test/retrain if test was good};
+        
+        % Arrows
+        \draw[->] (data) -- (train);
+        \draw[->] (data) -- (test);
+        \draw[->] (train) -- (dev);
+        \draw[->] (train) -- (val);
+        \draw[->] (dev) -- (build);
+        \draw[->] (val) -- (train_all);
+        \draw[->] (build) -- (train_all);
+        \draw[->] (train_all) -- (final_test);
+        \draw[->] (test) -- (final_test);
+    \end{tikzpicture}
+    \caption{Model Training Process}
+    \label{fig:data_split_extended}
+\end{figure}
+% ----------------------------------------------------------------
+
+\subsection*{Model Evaluation}
+How do we know whether a model is good? For classification models, we use the following metrics:
+
+% ----------------------------------------------------------------
+\begin{figure}[h]
+    \centering
+    \scalebox{0.7}{
+        \begin{tikzpicture}
+            \draw (0,0) rectangle (4,4);
+            
+            \draw (2,0) -- (2,4);
+            \draw (0,2) -- (4,2);
+            
+            \node at (1,3) {TP};
+            \node at (3,3) {FN};
+            \node at (1,1) {FP};
+            \node at (3,1) {TN};
+            \node at (1,4.3) {+}; % Above TP
+            \node at (3,4.3) {-}; % Above FN
+            \node at (4.4,3) {RP}; % Beside FN
+            \node at (4.4,1) {RN}; % Beside TN
+            \node at (-0.4,3) {+}; % Left of TP
+            \node at (-0.4,1) {-}; % Left of FP
+            \node at (1,-0.4) {PT}; % Below FP
+            \node at (3,-0.4) {PN}; % Below TN
+            \node at (4.4,-0.3) {GT};
+        \end{tikzpicture}
+    }
+    \caption{Confusion Matrix}
+    \label{fig:confusion_matrix}
+\end{figure}
+% ----------------------------------------------------------------
+
+\begin{itemize}
+    \item \textbf{Accuracy}: The proportion of correct predictions. \(\frac{\text{TP} + \text{TN}}{\text{TP} + \text{FP} + \text{TN} + \text{FN}}\)
+    \item \textbf{Error Rate}: \(1 - \text{Accuracy} = \frac{\text{FP} + \text{FN}}{\text{GT}}\)
+    \item \textbf{Precision}: Measures how well the model classifies positives. \(\frac{\text{TP}}{\text{TP} + \text{FP}}\)
+    \item \textbf{Recall (Sensitivity)}: Measures how many positive instances were correctly predicted. \(\frac{\text{TP}}{\text{TP} + \text{FN}}\)
+    \item \textbf{Specificity}: Measures the proportion of true negatives correctly identified. \(\frac{\text{TN}}{\text{FP} + \text{TN}}\)
+    \item \textbf{F-Score}: The harmonic mean of precision and recall. Best when \(B = 1\).
+\end{itemize}
+
+\subsection*{2. Perceptron Algorithm}
+\begin{itemize}
+    \item First machine learning/AI algorithm, introduced by Frank Rosenblatt in 1957.
+    \item The goal is to find a decision boundary or hyperplane to separate the data. There can be multiple decision boundaries.
+    \item For non-linear decision boundaries, techniques like the kernel trick can be used to create a hyperplane.
+    \item Assumptions:
+    \begin{itemize}
+        \item The data is linearly separable.
+    \end{itemize}
+    \item Definition: Hyperplane
+    \begin{itemize}
+        \item $\{(\vec{x}_1,y_1),(\vec{x}_2,y_2),...,(\vec{x}_n,y_n)\}$ where $y$ are labels.
+        \item $\mathcal{H}=\{x_i\mid w^Tx+b=0\}$ where $w$ is the vector of weights and $b$ is the bias and $b\in\mathbb{R}$.
+        \item Goal is to find $w$ and $b$.
+    \end{itemize}
+\end{itemize}
