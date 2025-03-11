@@ -62,7 +62,7 @@ variable $y$ represents the price of the home.\\\\
 
 For missing values on temperature for a particular city, instead of
 taking the average of every city in the country, we consider the average
-temperature of the 3 nearest cities. Let say we are trying to find the temperature
+temperature of the 3 nearest cities. Let's say we are trying to find the temperature
 of a city in New Hampshire.
 
 \begin{center}
@@ -79,7 +79,7 @@ of a city in New Hampshire.
     \end{tikzpicture}
 \end{center}
 
-Let's assume this dissorted circle is the map of The United States, and we are trying
+Let's assume this distorted circle is a map of The United States, and we are trying
 to find the temperature of a city in New Hampshire. The three dots inside the circle
 represent other cities near New Hampshire. We take the temperature of those 3 dots (cities),
 and then we average them to find the missing temperature from the city in New Hampshire. That's one
@@ -160,11 +160,11 @@ To ensure that our model generalizes well to unseen data, we use \textbf{k-fold 
 \section{Preprocessing} 
 
 \subsection{Scale Data}
-Scaling data is important in machine learning algorithm to maintain consistency.
-Some features might have large values while other have small, meaning that models will
-be more biased to the larger values. So, when they are in the same range, it is easier for
-models to compare the data impact on the result. For example, when dealing with distances metrics, 
-1000 miles compared to 50 fts, the 1000 miles will completely dominated the distance calculation, so, it
+Scaling data is important in machine learning algorithms to maintain consistency.
+Some features might have large values while others have small, meaning that models will
+be more biased towards the larger values. So, when they are in the same range, it is easier for
+models to compare the data impact on the result. For example, when dealing with the distance metric of 
+1000 miles compared to 50 feet, the 1000 miles will completely dominate the distance calculation; therefore, it
 is always necessary to scale this type of data.
 
 \subsection{Scaling Techniques}
@@ -195,9 +195,8 @@ x_i &= \begin{bmatrix}
         \end{bmatrix} \\
 \end{align*}
 
-For this standarize formula, we take the original values ($x_i$), subtract it with the mean of the
-entire column ($\bar{x}$), to later divide it with the standard deviation ($\sigma$), we would get the
-Z-score. This is one way of scaling data.
+For this standarize formula, we subtract the mean of the entire column, ($\bar{x}$), from each of the original values, ($x_i$), and divide that difference by the standard deviation ($\sigma$), to get the
+Z-score for that value ($x_i$). This is one way of scaling data.
 
 
 \1 \textbf{Normalize (min max scaler)}
@@ -242,14 +241,14 @@ For example, we have values that ranges from $2$ to $10$, then we would want to 
 \end{center}
 
 As we can see in the graph, we mapped $2$ to $0$, and $10$ to $1$, and they can be denoted by the solid lines,
-while the dashed lines represent a number in between $2$ and $10$ that connect to a value in between $0$ and $1$.
+while the dashed lines represent a number in between $2$ and $10$ that connects to a value in between $0$ and $1$.
 
 \end{outline}
 
 \section{Exploration (XPL) Problems}
 \begin{outline}[enumerate]
 
-    \1  Code the Standarize Scaler formula. \\
+    \1  Code the Standardize Scaler formula. \\
 
     \1  Write down the formula for linear transformation, and then code it. e.g.$[2,10]$ $\rightarrow$ $[0,1]$ and anything in between.\\
 
@@ -264,7 +263,7 @@ while the dashed lines represent a number in between $2$ and $10$ that connect t
 
     \1  Given a dataset: $D=\{x_i,y_i\}$
 
-    \1  Compute the distance from new point $x_t$ that is not in the set $D$, to every  $x_i$
+    \1  Compute the distance from new point $x_t$ that is not in the set $D$, to every $x_i$
 
     \1  Sort distances
 
@@ -280,10 +279,10 @@ $x_t$ is a test point\\
 
 $K \subseteq D$ \\
 
-$|K| = k$, where $|K|$ represent the number of elements in that subset\\
+$|K| = k$, where $|K|$ represents the number of elements in that subset\\
 
 $\forall(x^{\prime},y^{\prime}) \in D \hspace{1 mm} \backslash \hspace{1 mm} K$, for every point that is outside of $K$,
-the distance from the test point to all the points outside of $K$ have to be bigger than the maximum distance inside of $K$.
+the distance from the test point to all the points outside of $K$ has to be bigger than the maximum distance inside of $K$.
 
 \[
     d(x^{\prime},y^{\prime}) \geq max \hspace{1 mm} d \hspace{1 mm} (x_t, x^{\prime\prime})
@@ -339,13 +338,13 @@ the distance from the test point to all the points outside of $K$ have to be big
     \end{tikzpicture}
 \end{center}
 
-In the graph shown above, $D$ represents the whole data points, $D$ $\backslash$ $K$
-represent the points outside of $K$, and $K$ contains its own points that is also part of $D$.
-There are three blue dots ($K$=3) inside of $K$ surrounded by a red circle. This three
-dots are the 3 nearest neighbors used for classification or regression task in KNN. So,
+In the graph shown above, $D$ represents the set of all data points, $D$ $\backslash$ $K$
+represents the points outside of $K$, and $K$ contains its own points that are also part of $D$.
+There are three blue dots ($K$=3) inside of $K$ surrounded by a red circle. These three
+dots are the 3 nearest neighbors used for a classification or regression task in KNN. So,
 given a new test point, KNN calculates the distance between this new test point, and every point in the dataset.
-It then selects the K closest point as its neighbors (K=3 in this case), and then, it would either assign a class
-or predict a value depending of the task to that new data point by comparing the proximity of the data point to the
+It then selects the K closest points as its neighbors (K=3 in this case), and then, it would either assign a class
+or predict a value, depending on the task, to that new data point by comparing the proximity of the data point to the
 nearest neighbor.
 
 % -----------------------------------------------------------------------------------------------
@@ -447,15 +446,15 @@ the function minimum.\\
     \end{tikzpicture} \\
 \end{center}
 
-As shown in the graph above, the argmax is the input value ($x$) to produce the maximum
+As shown in the graph above, the argmax is the input value ($x$) that produces the maximum
 output value for the function. We must remember that $f(x) = y$, so, the \textbf{argmax}
 will produce the highest $y$ value.\\\\
 
 
 \subsection{Example of mode function}
 
-Let say we have a new data point as shown in the graph below represented by a red dot, and there
-are already a set of 9 y's values:
+Let's say we have a new data point, represented in the graph below by a red dot, and there
+are already a set of 9 y values:
 
 \begin{center}
     \begin{tikzpicture}
@@ -492,12 +491,12 @@ are already a set of 9 y's values:
     \end{tikzpicture}
 \end{center}
 
-Let say we assign $K = 3$, then it will select the nearest neighbors to that new data point.
+Let's say we assign $K = 3$, then it will select the nearest neighbors to that new data point.
 As seen in the graph, $y_2$ has a value of 0, $y_5$ is 1, and $y_7$ is 1 (0 and 1 are classes in this case), and
-they are the closest to the new data point. Later, we find the mode, and since the class 1 was the predominant one,
+they are the closest to the new data point. Then, we find the mode, which is 1, so
 the new data point would be assigned to be class 1.\\
-One important thing to do, if there are let say 2 classes, $K$ should not be a multiple of 2 to break ties, so $K$ could be
-3 or 5 or 7. This concept also applies for cases where there are 3 classes, we avoid choosing a $K$ that is a multiple of 3.
+Note that if there are two classes, then $K$ should not be a multiple of 2 in order to avoid ties; $K$ could be
+3 or 5 or 7 or so on. This concept applies for any cases where there are $N$ classes; we avoid choosing a $K$ that is a multiple of $N$.
 
 % -----------------------------------------------------------------------------------------------
 \section{Class Code}
