@@ -19,9 +19,12 @@
 
 \section{The Perceptron}
 
-A perceptron is one of the simplest types of artificial neural network and is a foundational concept in machine learning. It is particularly used for binary classification tasks. It was introduced by Frank Rosenblatt in 1958, one of the earliest neural network models designed to mimic the way the human brain processes information.
+A perceptron is one of the simplest types of artificial neural network and is a foundational concept in machine learning. 
+It is mainly used for binary classification tasks. Introduced by Frank Rosenblatt in 1958, it is one of the earliest neural network models designed to mimic the way the human brain processes information.
 
-The perceptron takes multiple inputs (features), each associated with a weight, and computes a weighted sum. This sum is then passed through an activation function, which produces the final output. To visualize this, consider a perceptron with four inputs \( x_1, x_2, x_3, x_4 \), each with corresponding weights \( w_1, w_2, w_3, w_4 \), and a bias term \( b \) as shown below.
+The perceptron takes multiple inputs (features), each associated with a weight, and computes a weighted sum. 
+This sum is then passed through an activation function, which produces the final output. 
+To visualize this, consider a perceptron with four inputs \( x_1, x_2, x_3, x_4 \), each with corresponding weights \( w_1, w_2, w_3, w_4 \), and a bias term \( b \) as shown below.
 
 \begin{center}
 \resizebox{!}{5cm}{ % Adjust height, width auto-scales
@@ -55,9 +58,11 @@ The perceptron takes multiple inputs (features), each associated with a weight, 
 }
 \end{center}
 
-To make the perceptron useful for real-world classification tasks, it must learn the appropriate weights and bias through training. The training process involves adjusting these parameters based on labeled examples.
+To make the perceptron useful for real-world classification tasks, it must learn the appropriate weights and bias through training. 
+The training process involves adjusting these parameters based on labeled examples.
 
-A training data set consists of multiple examples, where each input \( x_i \) is a \( p \)-dimensional vector representing features, and each corresponding label \( y_i \) is either \( -1 \) or \( 1 \) (for binary classification). Formally, we define the training data as follows:
+A training data set consists of multiple examples, where each input \( x_i \) is a \( p \)-dimensional vector representing features, 
+and each corresponding label \( y_i \) is either \( -1 \) or \( 1 \) (for binary classification). Formally, we define the training data as follows:
 
 \[
 \text{Training Data} = \{(x_1, y_1), (x_2, y_2), \dots, (x_n, y_n)\}
@@ -76,7 +81,8 @@ This data set helps update the weights of the perceptron using a learning algori
 
 \section{Hyperplane}
 
-A hyperplane is a decision boundary that separates data points into different classes. In binary classification, the hyperplane divides the space into two regions: one for positive class (+1) and one for negative class (-1). The hyperplane is represented by a slanted decision boundary that separates the two classes as shown below. 
+A hyperplane is a decision boundary that separates data points into different classes. In binary classification, the hyperplane divides the space into two regions: 
+one for positive class (+1) and one for negative class (-1). The hyperplane is represented by a slanted decision boundary that separates the two classes, as shown below. 
 
 \begin{center}
 \resizebox{!}{8cm}{ % Adjust height to 8cm, width auto-scales
@@ -96,7 +102,7 @@ A hyperplane is a decision boundary that separates data points into different cl
 }
 \end{center}
 
-When data points are linearly separable, there can be infinitely many hyperplanes that separate the points. These hyperplanes differ in their orientation and position, but all of them separate the points correctly. The ideal hyperplane is the one that maximizes the margin between the two classes.
+When data points are linearly separable, there can be infinitely many hyperplanes that separate the points. These hyperplanes differ in orientation and position, but they all separate the points correctly. The ideal hyperplane is the one that maximizes the margin between the two classes.
 
 \begin{center}
 \resizebox{!}{6cm}{ % Adjust height, width auto-scales
@@ -142,7 +148,7 @@ Where:
 
 The equation represents all the points \(\mathbf{x}\) that lie on the hyperplane.
 
-Thus, there are infinitely many possible hyperplanes that can separate the data points, but the **maximum margin hyperplane** is the one that best generalizes the decision boundary and is selected by techniques such as Support Vector Machines (SVMs).
+Thus, there are infinitely many possible hyperplanes that can separate the data points, but the \textbf{maximum margin} hyperplane is the one that best generalizes the decision boundary and is selected by techniques such as Support Vector Machines (SVMs).
 \section{Bundle \& Save}
 
 In the hyperplane equation:
@@ -165,7 +171,7 @@ w'^T x' = 0
 \section{Assumptions for the Perceptron Model}
 
 Data is Linearly Separable
-For the perceptron model to work, the data must be \textbf{linearly separable}. This means that there exists a linear hyperplane that can perfectly separate the data points belonging to different classes. 
+The data must be \textbf{linearly separable} for the perceptron model to work. This means that a linear hyperplane exists that can perfectly separate the data points belonging to different classes. 
 
 \subsection{What is Linearly Separable?}
 For a dataset with inputs \( x_i \) and corresponding labels \( y_i \), where \( y_i \in \{-1, 1\} \), the data is said to be linearly separable if there exists a hyperplane represented by the equation \( w^T x + b = 0 \) such that for each data point:
@@ -242,10 +248,13 @@ Where:
 
 \begin{itemize}
     \item \textbf{Algorithm Finds \( \mathbf{w} \) and \( b \) Based on Training Data:} 
-    During the training phase, the algorithm adjusts the weight vector \( \mathbf{w} \) and bias \( b \) based on the labeled training data. The goal is to find values for \( \mathbf{w} \) and \( b \) that minimize classification errors and effectively separate the data points into their respective classes. The training process involves optimizing the parameters based on the data's features and labels.
+    During the training phase, the algorithm adjusts the weight vector \( \mathbf{w} \) and bias \( b \) based on the labeled training data. 
+    The goal is to find values for \( \mathbf{w} \) and \( b \) that minimize classification errors and effectively separate the data points into their respective classes. 
+    The training process involves optimizing the parameters based on the data's features and labels.
 
     \item \textbf{Classifying New Data:} 
-    For new, unseen data, the classifier uses the learned values of \( \mathbf{w} \) and \( b \) to make a prediction. The new data point \( \mathbf{x} \) is classified by evaluating the equation:
+    For new, unseen data, the classifier uses the learned values of \( \mathbf{w} \) and \( b \) to make a prediction. 
+    The new data point \( \mathbf{x} \) is classified by evaluating the equation:
     \[
     h(x) = \text{sign}(\mathbf{w}^T \mathbf{x} + b)
     \]
