@@ -16,18 +16,26 @@
 % ----------------------------------------------------------------
 \section{Norms}
 
-A Norm is a function that takes a vector and maps it to a real number such that:
+A Norm is a function that takes a vector and maps it to a real number. It is closely tied to the concepts of absolute value and length. In relation to distance, $||x|| = ||x - 0|| = d(x,0)$. 
+
+The Norm function is $||\cdot|| : V \rightarrow \R^{+}$ such that:
 
 \begin{enumerate}
-	\item norms are greater than or equal to 0
-	\item norms are equal to 0 only if x=0
+	\item $||x|| \ge 0$    norms are greater than or equal to 0
+	\item $||x|| = 0 \text{ iff } x = 0$    norms are equal to 0 if and only if $x = 0$
 	\item $||Cx|| = |C| \cdot ||x|| \text{ where } C \in \R$
 	\item $||x+y|| \leq ||x|| + ||y||$
 \end{enumerate}
 
-An example of using these rules is when determining whether something is a norm is with the Hamming Distance. Which property doesn't the hamming distance satisfy? Hamming distance is a sum of different parts. It doesn't fit rule 3 because the result is not multiplied  by C if you multiply the vector by 3. With a hamming distance remains the same.
 
-There are several types of norms, and we differentiate them by subscripts. The first set of norms are the Minkowski norms or $p$ norms, which are denoted as such.
+Let's do an example with the Hamming Distance equation to show how to apply these rules. To show that Hamming Distance is a norm function, it must satisfy all the properties. Which property doesn't the Hamming Distance satisfy? Hamming distance is the number of elements that are different between two vectors, therefore it doesn't fit rule 3. For instance, if the vectors are multiplied by 3, the result is not multiplied by 3. Therefore, Hamming Distance is NOT a norm function:
+
+\centering
+$d_{H}(Cx,Cy) \ne C \cdot d_{H}(x,y)$
+
+\raggedright
+
+There are several types of norms, and we differentiate them by subscripts. The first set of norms are the Minkowski norms or $p$ norms, which are denoted as such:
 
 \centering
 1-norm $= ||x||_1$
@@ -114,9 +122,9 @@ He then showed another problem.
 	\draw[thick,->] (0,0) -- (2.5,2) node[anchor=south east] {b};
 \end{tikzpicture}
 
-The goal was to project b down onto a. This is necessary because there is no way to turn a into b through multiplication. Multiples just stretches vector a. There are a few terms we'll need to know before we can do this.
+The goal was to project $b$ down onto $a$. This is necessary because there is no way to turn $a$ into $b$ through multiplication. Multiplication just stretches vector $a$. There are a few terms we'll need to know before we can do this.
 
-$p =$ projection which is equivalent to $b_\|$ which is parallel to a. It is also equivalent to a time some constant as it is just a resizing of a or $b_\| = ca = p$. This is the vector added below.
+$p =$ projection which is equivalent to $b_\|$ which is parallel to $a$. It is also equivalent to $a$ times some constant as it is just a resizing of $a$ or $b_\| = ca = p$. This is the vector added below.
 
 \begin{tikzpicture}
 	\draw[thick,->] (0,0) -- (4.5,0) node[anchor=north west] {x axis};
@@ -126,7 +134,7 @@ $p =$ projection which is equivalent to $b_\|$ which is parallel to a. It is als
 	\draw[thick,->] (0,0) -- (3,0.75) node[anchor=north east] {$b_\|$};
 \end{tikzpicture}
 
-$b_\perp$ is perpendicular to a. It is also know as the residual and is equal to b minus a times some constant c or $b_\perp = b-ca$. This is the vector added below.
+$b_\perp$ is perpendicular to $a$. It is also know as the residual and is equal to $b$ minus $a$ times some constant $c$, or $b_\perp = b-ca$. This is the vector added below.
 
 \begin{tikzpicture}
 	\draw[thick,->] (0,0) -- (4.5,0) node[anchor=north west] {x axis};
@@ -148,7 +156,8 @@ It is also important to note that $b = b_\| + b_\perp$ and that $\langle b_\| , 
 	c &= \frac{a^Tb}{a^Ta} \\
 	c &= \frac{\langle a,b \rangle}{\langle a,a \rangle} \\
 	ca &=  (\frac{a^Tb}{a^Ta})a 
+ 	p &=   (\frac{a^Tb}{a^Ta})a
 \end{align*}
 
-All of this allows you to project b onto a.
+All of this allows you to project $b$ onto $a$.
 
