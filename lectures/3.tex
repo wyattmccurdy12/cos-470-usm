@@ -1,5 +1,5 @@
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-% SUMMARY    : Vectors, Matricies, Distance and Norms 
+% SUMMARY    : Dimensionality, Distance, and KNN
 %            : University of Southern Maine 
 %            : @james.quinlan
 %            : Sarah Lawrence  - Lecture 3
@@ -286,51 +286,175 @@ How to know $\ell$ size? Solve algebraically.
 
 \subsection{Code}
 Language: Julia\\
-Platform: Jupyter notebook\\\\
+Platform: Jupyter notebook\\\\\\\\
 Code:\\
+
+%--------------------------------------------------------------------------
+% Jupyter Notebook format for code portion
+\begin{tcolorbox}[width=\textwidth, left=-6mm, sharp corners, boxrule=0pt]
+  \begin{minted}[fontsize=\small]{julia}
+    using Distances
+    using LinearAlgebra 
+  \end{minted}
+\end{tcolorbox}
+
+\begin{tcolorbox}[width=\textwidth, left=-6mm, sharp corners, boxrule=0pt]
+  \begin{minted}[fontsize=\small]{julia}
+    x = rand(2) 
+  \end{minted}
+\end{tcolorbox}
+% Output
+\footnotesize
+\vspace{-4mm} % Move text higher
 \begin{verbatim}
-using Distances
-
-x = rand(2) 
-
-y = rand(2)
-
-Euclidean()(x,y)
-
-Minkowski(2)(x,y)
-
-Hamming()(x,y)
-
-using LinearAlgebra 
-
-norm(x-y)
-
-L(p)=@. (k/n)^(1/p)
-
-p=[1,2,3,10,20,100]
-
-n=1000
-
-k=11
-
-L.(p)
-
-N = 500
-d = 5
-D = 0.0 # distance
-for_=1:N
-    x = rand(d)
-    y = rand(d)
-    D += norm(x - y)
-end
-
-28*28
-
-for_ = 1:100
-    x = rand(d)
-    min(1-norm(x,Inf), norm(x,Inf)
-end
+  2-element Vector{Float64}:
+    0.11715724827332152
+    0.8703834178825096
 \end{verbatim}
+
+\begin{tcolorbox}[width=\textwidth, left=-6mm, sharp corners, boxrule=0pt]
+  \begin{minted}[fontsize=\small]{julia}
+    y = rand(2)
+  \end{minted}
+\end{tcolorbox}
+% Output
+\footnotesize
+\vspace{-4mm}
+\begin{verbatim}
+  2-element Vector{Float64}:
+    0.983074530416966
+    0.9654697003440244
+\end{verbatim}
+
+\begin{tcolorbox}[width=\textwidth, left=-6mm, sharp corners, boxrule=0pt]
+  \begin{minted}[fontsize=\small]{julia}
+    Euclidean()(x,y)
+  \end{minted}
+\end{tcolorbox}
+% Output
+\footnotesize
+\vspace{-4mm}
+\begin{verbatim}
+  0.8711223453840379
+\end{verbatim}
+
+\begin{tcolorbox}[width=\textwidth, left=-6mm, sharp corners, boxrule=0pt]
+  \begin{minted}[fontsize=\small]{julia}
+    Minkowski(2)(x,y)
+  \end{minted}
+\end{tcolorbox}
+% Output
+\footnotesize
+\vspace{-4mm}
+\begin{verbatim}
+  0.8711223453840379
+\end{verbatim}
+
+\begin{tcolorbox}[width=\textwidth, left=-6mm, sharp corners, boxrule=0pt]
+  \begin{minted}[fontsize=\small]{julia}
+    Hamming()(x,y)
+  \end{minted}
+\end{tcolorbox}
+% Output
+\footnotesize
+\vspace{-4mm}
+\begin{verbatim}
+  2
+\end{verbatim}
+
+\begin{tcolorbox}[width=\textwidth, left=-6mm, sharp corners, boxrule=0pt]
+  \begin{minted}[fontsize=\small]{julia}
+    norm(x-y)
+  \end{minted}
+\end{tcolorbox}
+% Output
+\footnotesize
+\vspace{-4mm}
+\begin{verbatim}
+  0.8711223453840379
+\end{verbatim}
+
+\begin{tcolorbox}[width=\textwidth, left=-6mm, sharp corners, boxrule=0pt]
+  \begin{minted}[fontsize=\small]{julia}
+    L(p)=@. (k/n)^(1/p)
+  \end{minted}
+\end{tcolorbox}
+% Output
+\footnotesize
+\vspace{-4mm}
+\begin{verbatim}
+  L (generic function with 1 method)
+\end{verbatim}
+
+\begin{tcolorbox}[width=\textwidth, left=-6mm, sharp corners, boxrule=0pt]
+  \begin{minted}[fontsize=\small]{julia}
+    p=[1,2,3,10,20,100]
+  \end{minted}
+\end{tcolorbox}
+% Output
+\footnotesize
+\vspace{-4mm}
+\begin{verbatim}
+  6-element Vector{Int64}:
+     1
+     2
+     3
+    10
+    20
+   100
+\end{verbatim}
+
+\begin{tcolorbox}[width=\textwidth, left=-6mm, sharp corners, boxrule=0pt]
+  \begin{minted}[fontsize=\small]{julia}
+    n=1000
+    k=11
+    L.(p)
+  \end{minted}
+\end{tcolorbox}
+% Output
+\footnotesize
+\vspace{-4mm}
+\begin{verbatim}
+  6-element Vector{Float64}:
+   0.011
+   0.10488088481701516
+   0.22239800905693158
+   0.6369997597182926
+   0.7981226470400978
+   0.9559032250692122
+\end{verbatim}
+
+\begin{tcolorbox}[width=\textwidth, left=-6mm, sharp corners, boxrule=0pt]
+  \begin{minted}[fontsize=\small]{julia}
+    N = 500
+    d = 5
+    D = 0.0 # distance
+    for _=1:N
+      x = rand(d)
+      y = rand(d)
+      D += norm(x - y)
+    end
+
+    println(D)
+  \end{minted}
+\end{tcolorbox}
+% Output
+\footnotesize
+\vspace{-4mm}
+\begin{verbatim}
+  450.01189208407664
+\end{verbatim}
+
+\begin{tcolorbox}[width=\textwidth, left=-6mm, sharp corners, boxrule=0pt]
+  \begin{minted}[fontsize=\small]{julia}
+    # Computes the minimum distance of the max norm from 0 and 1 for 100 random vectors.
+    for _ = 1:100
+      x = rand(d)
+      min(1-norm(x,Inf), norm(x,Inf))
+    end
+  \end{minted}
+\end{tcolorbox}
+%--------------------------------------------------------------------------
 
 \subsection{Distance}
 \textbf{Divergence}: The distance between two points increases infinitely.\\
@@ -472,7 +596,7 @@ Use K-NN. Do this by taking the temperatures of the closest states and perform t
 Rule:
 $K$ always needs to be an odd number for classification. This is to prevent a tie from occurring.
 
-Example: Is ? positive or negative? \\
+Example: Is \textcolor{red}{?} positive or negative? \\
 $K = 3$, $p = 2$, $n = 16$
 
 \begin{tikzpicture}
@@ -502,7 +626,7 @@ $K = 3$, $p = 2$, $n = 16$
    
 \end{tikzpicture} 
 
-Answer: The k = 3 closest are a positive negative and negative. Since there are two negatives we assume the ? is negative. \\
+Answer: The k = 3 closest are a positive negative and negative. Since there are two negatives we assume the \textcolor{red}{?} is negative. \\
 
 Order:
 \begin{outline}
