@@ -7,7 +7,7 @@
 \section*{Objectives}
 \begin{itemize}
   \item Dimensionality - Code Examples
-  \item Distance Explination
+  \item Distance Explanation
   \item Introduction to K-NN
   \end{itemize}
 
@@ -22,7 +22,7 @@ Break down:
 \begin{itemize}
     \item $\vec{x}$ represents a vector. 
     \item $\in$ represents an element belonging to a particular set. 
-    \item $\mathbb{R}$ represents all real numbers. 
+    \item $\mathbb{R}$ represents the set of all real numbers. 
     \item $p$ represents the dimension of the vector space. 
     \item \textbf{Meaning}: $\vec{x}$ is a vector with all elements being real numbers in $p$-dimensional space. 
     \item \textbf{Terminology}: $p$ can have other names such as Feature Space, and Factors.
@@ -50,7 +50,7 @@ x_p
     p>>1
 \]
 \textbf{Meaning}: This is $p$ much greater than one. If this happens then vector x has a high number of dimensions. \\
-\textbf{Problem}: High dimensionality is called the ``Curse of Dimensionality". \\\\
+\textbf{Problem}: High dimensionality can cause issues like data sparsity and overfitting. Similarly, there is the ``Curse of Dimensionality". \\\\
 
 \section{Lecture}
 \subsection{Dimensionality}
@@ -70,7 +70,7 @@ Two dimensional vector space:
 \end{tikzpicture}
 
 
-\textbf{Curse of Dimensionality}: When working in high-dimensional spaces it causes challenges. Such challenges include data sparsity and overfitting in machine learning. \\
+\textbf{Curse of Dimensionality}: In a feature space with $p$ dimensions, $[0,1]^p$, full of randomly distributed points, as $p$ approaches infinity, the average distance from any given point to the closest edge decreases.\\
 
 Example:  High dimensionality (p value) in a two dimensional space.\\
 
@@ -334,7 +334,7 @@ end
 
 \subsection{Distance}
 \textbf{Divergence}: The distance between two points increases infinitely.\\
-\textbf{Converging}: The distance between two points decreases infinitely. \\
+\textbf{Converging}: The distance between two points converges to zero. \\
 
 Example: The left box shows divergence. The right box shows convergence.\\
 \begin{tikzpicture}
@@ -355,7 +355,7 @@ Example: The left box shows divergence. The right box shows convergence.\\
   
 \end{tikzpicture} \\
 
-Question: Cosign distance is not a distance why?
+Question: Cosine distance is not a distance: why?
 Because it is not nonnegative. 
 
 Question: What's the minimum distance to an edge? \\\\
@@ -459,7 +459,7 @@ Methods:
 Example: Maine is missing temperature data. Taking the mean won't work since places like Texas and Arizona will effect the results. \\
 
 How to solve this problem? \\
-Use K-NN. Do this by taking the temperatures of the closest states and preform the average. 
+Use K-NN. Do this by taking the temperatures of the closest states and perform the average. 
 
 \textbf{K-NN setup}: 
 \[
