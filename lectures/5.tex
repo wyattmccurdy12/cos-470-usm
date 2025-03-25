@@ -7,7 +7,7 @@
 
 \section*{Objectives}
 \begin{outline}
-    \1 Questions from last lecture
+    \1 Continuation of Prior Lecture
     \1 More about kNN
     \1 Code in Julia
     \1 XPL's
@@ -15,30 +15,49 @@
 
 \rule[0.0051in]{\textwidth}{0.00025in}
 % ----------------------------------------------------------------
+\section{Continuation of Prior Lecture}
 
+Consider the following.
 
-\section{Questions from Last Lecture}
-Going back to two problems from last class
+\begin{enumerate}
+    \item Given $[a,b] \rightarrow [0,1]$ our objective is to map $a \rightarrow 0$ and $b \rightarrow 1$
+    
+    \begin{align*}
+       x&=\frac{1}{b-a}(x-a) \\
+        &=\frac{1}{b-a}x-\frac{a}{b-a}
+    \end{align*}
 
-1.) $[a,b] \rightarrow [0,1]$ mapping interval
+    \begin{center}
+    \begin{tikzpicture}
+        % Draw the line from a to b
+        \draw[-] (0,0) -- (4,0) node[midway, above] {$\frac{a+b}{2}$};
+        % Add labels for a and b
+        \node at (0,0) [below] {a};
+        \node at (4,0) [below] {b};
+    \end{tikzpicture}
+    \end{center}
 
-2.) $[a,b] \rightarrow [c,d]$ \\
+    \begin{center}
+        \begin{align*}
+        &=\frac{1}{b-a}(\frac{a+b}{2})-\frac{2a}{2(b-a)} \\
+        &=\frac{a+b-2a}{2(b-a)} \\
+        &=\frac{b-a}{2(b-a)} \\
+        &=\frac{1}{2}
+        \end{align*}
+    \end{center}
 
-1.) We want to map $a \rightarrow 0$ and $b \rightarrow 1$ \\
-First we need to come up with a formula
-\[
-    x=\frac{1}{b-a}(x-a) or \frac{1}{b-a}x-\frac{a}{b-a}
-\]
-Then we check with values to make sure our formula is correct.
-Try $0,\frac{1}{2},1$ we choose these values because it is the two bounds and the half way point between the bounds. \\
+    Check the formula by testing with $0,\frac{1}{2},1$, which make up the bounds and the midpoint. 
+    
+    It is given that $(a,0) \land (b,1)$ where $m=\frac{1-0}{b-a}=\frac{1}{b-a}$.
+    
+    We can then derive $y-0=\frac{1}{b-a}(x-a)= {\frac{1}{b-a}x-\frac{a}{b-a}}$
+    \item $[a,b] \rightarrow [c,d]$
 
-effectively you have $(a,0) \land (b,1)$. Where $m=\frac{1-0}{b-a}=\frac{1}{b-a}$ \\
-
-Then you can get $y-0=\frac{1}{b-a}(x-a)= \bold{\frac{1}{b-a}x-\frac{a}{b-a}}$\\
-
-2.) $\frac{x-a}{b-a}d + \frac{b-x}{b-a}c$ \\
-$(a,c) \land (b,d) \rightarrow m = \frac{d-c}{b-a}$ \\
-
+    \begin{align*}
+       \frac{x-a}{b-a}d + \frac{b-x}{b-a}c \\
+       (a,c) \land (b,d) \rightarrow m = \frac{d-c}{b-a}
+    \end{align*}
+\end{enumerate}
 % ----------------------------------------------------------------
 \section{More about kNN}
 argmax$\sum_{i \in n_k}^{}$I$c_j(y_i)$ $j={1,2,...m}$ \\
