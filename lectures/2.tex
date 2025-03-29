@@ -28,7 +28,45 @@ The Norm function is $||\cdot|| : V \rightarrow \R^{+}$ such that:
 \end{enumerate}
 
 
-Let's do an example with the Hamming Distance equation to show how to apply these rules. To show that Hamming Distance is a norm function, it must satisfy all the properties. Which property doesn't the Hamming Distance satisfy? Hamming distance is the number of elements that are different between two vectors, therefore it doesn't fit rule 3. For instance, if the vectors are multiplied by 3, the result is not multiplied by 3. Therefore, Hamming Distance is NOT a norm function:
+Consider the following example.
+% ----------------------------------------------------------------
+\[
+d_H \left( \mathbf{{x}} = 
+\begin{bmatrix}
+    1 \\
+    0 \\
+    1 
+\end{bmatrix}, 
+\quad
+\mathbf{{y}} = 
+\begin{bmatrix}
+    0 \\
+    1 \\
+    1 \\
+\end{bmatrix} \right) = 2
+\]
+% ----------------------------------------------------------------
+
+The Hamming Distance must satisfy all properties in order to be considered a norm function. Consider if $x$ and $y$ were scaled by an arbitrarily chosen constant $3$.
+% ----------------------------------------------------------------
+\[
+d_H \left( \mathbf{{x}} = 
+\begin{bmatrix}
+    3 \\
+    0 \\
+    3 
+\end{bmatrix}, 
+\quad
+\mathbf{{y}} = 
+\begin{bmatrix}
+    0 \\
+    3 \\
+    3 \\
+\end{bmatrix} \right) = 2
+\]
+% ----------------------------------------------------------------
+
+The Hamming Distance returns the number of elements that differ between two vectors. The result remains the same despite scaling the vectors. Therefore, the Hamming Distance is \textbf{not} a Norm function as it does not meet the third criteria.
 
 \centering
 $d_{H}(Cx,Cy) \ne C \cdot d_{H}(x,y)$
